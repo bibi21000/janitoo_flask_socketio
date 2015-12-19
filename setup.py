@@ -63,13 +63,10 @@ setup(
     install_requires=[
         'janitoo_db >= %s'%janitoo_version,
         'janitoo_flask >= %s'%janitoo_version,
-        'gevent == 1.0.2',
-        'gevent-socketio == 0.3.7',
-        #~ 'gevent-websocket',
-        'Flask-SocketIO >= 0.6.0',
+        'gevent-socketio',
+        'Flask-SocketIO',
     ],
     dependency_links = [
-      'https://github.com/bibi21000/gevent-socketio/archive/master.zip#egg=gevent-socketio-%s'%"0.3.7",
       'https://github.com/bibi21000/janitoo_db/archive/master.zip#egg=janitoo_db-%s'%janitoo_version,
       'https://github.com/bibi21000/janitoo_flask/archive/master.zip#egg=janitoo_flask-%s'%janitoo_version,
     ],
