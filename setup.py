@@ -59,12 +59,13 @@ setup(
     install_requires=[
         'janitoo_db >= %s'%janitoo_version,
         'janitoo_flask >= %s'%janitoo_version,
-        'gevent == 1.0.2',
+        'python-socketio == 0.8.2',
         'Flask-SocketIO',
     ],
     dependency_links = [
       'https://github.com/bibi21000/janitoo_db/archive/master.zip#egg=janitoo_db-%s'%janitoo_version,
       'https://github.com/bibi21000/janitoo_flask/archive/master.zip#egg=janitoo_flask-%s'%janitoo_version,
+      'https://github.com/miguelgrinberg/python-socketio/archive/master.zip#egg=python-socketio-0.8.2',
     ],
     classifiers=[
         'Environment :: Web Environment',
