@@ -52,7 +52,7 @@ from janitoo_db.migrate import Config as alConfig, collect_configs, janitoo_conf
 
 from janitoo_flask import FlaskJanitoo
 
-class TestFlask(JNTTFlask, JNTTFlaskCommon):
+class TestFlask(JNTTFlask):
     """Test flask
     """
     flask_conf = None
