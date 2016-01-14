@@ -38,7 +38,6 @@ from flask_bower import Bower
 from flask_cache import Cache
 
 from janitoo_nosetests_flask.flask import JNTTFlask, JNTTFlaskCommon
-from janitoo_nosetests_flask.flask import JNTTFlaskLive, JNTTFlaskLiveCommon
 
 from janitoo.utils import json_dumps, json_loads
 from janitoo.utils import HADD_SEP, HADD
@@ -63,3 +62,10 @@ class TestFlask(JNTTFlask, JNTTFlaskCommon):
         janitoo = FlaskJanitoo(app)
         janitoo.init_app(app, {})
         return app
+
+    def test_001_app_is_loaded(self):
+        self.assertEqual(type(self.app.extensions['cache']), type(Cache()))
+        self.assertEqual(type(self.app.extensions['bower']), type(Bower()))
+        print self.get_routes()
+        self.assertEndpoint('bower.serve')
+        self.assertEndpoint('static')
