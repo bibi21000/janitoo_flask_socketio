@@ -1,0 +1,30 @@
+janitoo_flask_socketio package
+==============================
+
+Submodules
+----------
+
+janitoo_flask_socketio.listener module
+--------------------------------------
+
+.. automodule:: janitoo_flask_socketio.listener
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_flask_socketio.network module
+-------------------------------------
+
+.. automodule:: janitoo_flask_socketio.network
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: janitoo_flask_socketio
+    :members:
+    :undoc-members:
+    :show-inheritance:
