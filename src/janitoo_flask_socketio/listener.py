@@ -31,20 +31,11 @@ __copyright__ = "Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi2100
 import logging
 logger = logging.getLogger(__name__)
 
-import os, sys
-import time
-import threading
-from pkg_resources import iter_entry_points
+import os
 
-from flask import Flask, render_template, session, request, current_app
+from flask import Flask, render_template, session, request
 
-from janitoo.mqtt import MQTTClient
-from janitoo.options import JNTOptions
-from janitoo.server import JNTControllerManager
-from janitoo.utils import HADD, HADD_SEP, CADD, json_dumps, json_loads
-from janitoo.dhcp import HeartbeatMessage, check_heartbeats, CacheManager
 from janitoo_flask_socketio.network import NetworkSocketio
-from janitoo_flask.controller import Controller
 from janitoo_flask.listener import ListenerThread
 
 ##############################################################
@@ -76,4 +67,12 @@ class ListenerSocketio(ListenerThread):
     def create_network(self):
         """Create the listener on first call
         """
-        self.network = NetworkSocketio(self.socketio, self.app, self._stopevent, self.options, is_primary=False, is_secondary=True, do_heartbeat_dispatch=False)
+        self.network = NetworkSocketio(
+            self.socketio,
+            self.app,
+            self._stopevent,
+            self.options,
+            is_primary=False,
+            is_secondary=True,
+            do_heartbeat_dispatch=False
+        )
