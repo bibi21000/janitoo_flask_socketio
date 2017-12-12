@@ -66,6 +66,6 @@ class TestFlask(JNTTFlask):
     def test_001_app_is_loaded(self):
         self.assertEqual(type(self.app.extensions['cache']), type(Cache()))
         self.assertEqual(type(self.app.extensions['bower']), type(Bower()))
-        print self.get_routes()
+        print(self.get_routes())
         self.assertEndpoint('bower.serve')
         self.assertEndpoint('static')
