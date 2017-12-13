@@ -50,7 +50,8 @@ from janitoo.options import JNTOptions
 from janitoo_db.base import Base, create_db_engine
 from janitoo_db.migrate import Config as alConfig, collect_configs, janitoo_config
 
-from janitoo_flask import FlaskJanitoo
+from janitoo_flask_socketio import FlaskJanitooSocketio
+from flask_socketio import SocketIO
 
 class TestFlask(JNTTFlask):
     """Test flask
@@ -58,9 +59,11 @@ class TestFlask(JNTTFlask):
     flask_conf = None
 
     def create_app(self):
+        # SocketIO
+        socketio = SocketIO()
         app = Flask("janitoo_flask_socketio")
-        janitoo = FlaskJanitoo(app)
-        janitoo.init_app(app, {})
+        janitoo = FlaskJanitooSocketio(app, socketio)
+        janitoo.init_app(app, socketio, {})
         return app
 
     def test_001_app_is_loaded(self):
